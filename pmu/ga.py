@@ -91,8 +91,8 @@ class World(object):
         self.population = new_population
 
         # Global bests
-        self.bests.sort(lambda x, y: x[1] - y[1])
         self.bests = list(set(self.bests))
+        self.bests.sort(lambda x, y: x[1] - y[1])
         self.bests = self.bests[:10]
         ####
 
