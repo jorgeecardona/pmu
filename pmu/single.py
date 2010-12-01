@@ -3,8 +3,8 @@ from ga import World
 from os import path
 
 # Configuration
-filename = path.join(path.dirname(path.abspath(__file__)), "ieee30cdf.txt")
-number_of_busses = 30
+filename = path.join(path.dirname(path.abspath(__file__)), "ieee500k.txt")
+number_of_busses = 85
 
 # Open power system.
 power_system = pmu.PowerSystem.open(filename)

@@ -229,7 +229,7 @@ class PowerSystem(object):
         lines = data.split("\n")
 
         # Search for message "BUS DATA FOLLOWS"
-        while "bus data follows" not in lines[0].lower():
+        while "bus data" not in lines[0].lower():
             # Delete first line
             lines.pop(0)
         lines.pop(0)
@@ -249,7 +249,7 @@ class PowerSystem(object):
             power_system._add_bus(Bus(number))
 
         # Search for message "BUS DATA FOLLOWS"
-        while "branch data follows" not in lines[0].lower():
+        while "branch data" not in lines[0].lower():
             # Delete first line
             lines.pop(0)
         lines.pop(0)
