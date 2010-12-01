@@ -51,6 +51,10 @@ class Bus(object):
 
         self.branches.append(branch)
 
+    def _del_branch(self, branch):
+        i = self.branches.index(branch)
+        self.branches.pop(i)
+
     def __repr__(self):
         return '<Bus number="%(number)d" name="%(name)s">' % {
             'number': self.number,
@@ -111,6 +115,12 @@ class Branch(object):
 
         # Measure.
         self.measure = Measure()
+
+    def disconnect(self):
+        self._a._del_branch(self)
+        self._b._del_branch(self)
+        self._a = None
+        self._b = None
 
     def __repr__(self):
         return '<Bus terminal_a="%(a)s" terminal_b="%(b)s">' % {
@@ -188,6 +198,22 @@ class PowerSystem(object):
 
         for bus in self.busses:
             self.busses[bus].measure = Measure()
+
+    def _del_bus(self, bus):
+        # Delete branches
+        for branch in bus.branches:
+            branch.disconnect()
+            i = self.branches.index(branch)
+            self.branches.pop(i)
+            del branch
+
+        # Delete from busses list
+        for key in self.busses:
+            if self.busses[key] == bus:
+                break    
+        self.busses.pop(key)
+
+        del bus
 
     @classmethod
     def open(cls, filename):
