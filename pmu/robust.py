@@ -1,5 +1,6 @@
 import pmu
 from ga import World
+from os import path
 
 # Filename
 filename = path.join(path.dirname(path.abspath(__file__)), "ieee30cdf.txt")
