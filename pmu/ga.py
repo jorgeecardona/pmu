@@ -12,6 +12,12 @@ class Genome(object):
         for i in range(size):
             self.dna.append(randint(0, 1))
 
+    def __eq__(self, other):
+        return self.dna == other.dna
+
+    def __ne__(self, other):
+        return self.dna != other.dna
+
     def __add__(self, other):
         # Combination.
 
@@ -86,6 +92,7 @@ class World(object):
 
         # Global bests
         self.bests.sort(lambda x, y: x[1] - y[1])
+        self.bests = list(set(self.bests))
         self.bests = self.bests[:10]
         ####
 
