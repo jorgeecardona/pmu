@@ -57,3 +57,9 @@ for i in range(1000):
         print p[1]
 
     print "New generation"
+
+print "Finally: "
+for p in w.bests:
+    for gen in p[0].dna:
+        print gen,
+    print p[1]

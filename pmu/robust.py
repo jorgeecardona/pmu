@@ -87,3 +87,4 @@ for p in w.bests:
     for gen in p[0].dna:
         print gen,
     print p[1]
+
