@@ -1,8 +1,12 @@
 import pmu
 from ga import World
 
+# Filename
+filename = "ieee14cdf.txt"
+number_of_busses = 14
+
 # Open power system.
-power_system = pmu.PowerSystem.open("/home/jcardona/Downloads/ieee14cdf.txt")
+power_system = pmu.PowerSystem.open(filename)
 busses_keys = power_system.busses.keys()
 systems = [power_system]
 
@@ -11,7 +15,7 @@ for key in power_system.busses.keys():
 
     # Add a new system
     systems.append(
-        pmu.PowerSystem.open("/home/jcardona/Downloads/ieee14cdf.txt"))
+        pmu.PowerSystem.open(filename))
 
     # Delete one of the branches in the last system
     systems[-1]._del_bus(systems[-1].busses[key])
@@ -56,7 +60,7 @@ def fitness(org):
 
 w = World(fitness,
           population=60,
-          dna_size=len(busses_keys),
+          dna_size=number_of_busses,
           mutation_factor=0.7)
 
 for i in range(100):

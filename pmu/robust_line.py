@@ -2,7 +2,7 @@ import pmu
 from ga import World
 
 # Filename
-filename = "/home/jcardona/Downloads/ieee14cdf.txt"
+filename = "ieee14cdf.txt"
 number_of_busses = 14
 
 # Open power system.
