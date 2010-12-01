@@ -1,8 +1,9 @@
 import pmu
 from ga import World
+from os import path
 
 # Configuration
-filename = "ieee30cdf.txt"
+filename = path.join(path.dirname(path.abspath(__file__)), "ieee30cdf.txt")
 number_of_busses = 30
 
 # Open power system.

@@ -2,8 +2,8 @@ import pmu
 from ga import World
 
 # Filename
-filename = "ieee14cdf.txt"
-number_of_busses = 14
+filename = path.join(path.dirname(path.abspath(__file__)), "ieee30cdf.txt")
+number_of_busses = 30
 
 # Open power system.
 power_system = pmu.PowerSystem.open(filename)
